@@ -7,10 +7,8 @@
  * License:
  **************************************************************/
 
-#include "wx_pch.h"
 #include "wxBlockNoteMain.h"
 #include "wxBlockNoteApp.h"
-#include <wx/msgdlg.h>
 #include "images/application_go.xpm"
 #include "images/information.xpm"
 #include "images/world.xpm"
@@ -104,17 +102,17 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     menuHelp->Append(menuItemAbout);
     MenuBar->Append(menuHelp, _("Help"));
     SetMenuBar(MenuBar);
-    statusBar = new wxStatusBar(this, ID_STATUSBAR, 0, _T("ID_STATUSBAR"));
+    StatusBar = new wxStatusBar(this, ID_STATUSBAR, 0, _T("ID_STATUSBAR"));
     int __wxStatusBarWidths_1[1] = { -1 };
     int __wxStatusBarStyles_1[1] = { wxSB_NORMAL };
-    statusBar->SetFieldsCount(1,__wxStatusBarWidths_1);
-    statusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
-    SetStatusBar(statusBar);
+    StatusBar->SetFieldsCount(1,__wxStatusBarWidths_1);
+    StatusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
+    SetStatusBar(StatusBar);
     Center();
 
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnQuit);
     Connect(idMenuLanguage,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnLanguageSelect);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnLanguageSelect);
+    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnAbout);
     //*)
 }
 

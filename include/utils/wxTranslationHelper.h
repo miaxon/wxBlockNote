@@ -4,7 +4,7 @@
 
 #include <wx/wx.h>
 #include <wx/intl.h>
-
+#include <wx/dir.h>
 class wxTranslationHelper
 {
 	wxApp & m_App;

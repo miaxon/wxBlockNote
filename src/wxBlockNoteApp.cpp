@@ -7,10 +7,10 @@
  * License:
  **************************************************************/
 
-#include "wx_pch.h"
-#include "wxBlockNoteApp.h"
+
 
 //(*AppHeaders
+#include "wxBlockNoteApp.h"
 #include "wxBlockNoteMain.h"
 #include <wx/image.h>
 //*)
@@ -25,10 +25,8 @@ bool wxBlockNoteApp::OnInit()
     wxImage::AddHandler(new wxPNGHandler);
     m_appFileName = new wxFileName(argv[0]);
     //wxFileName appFileName(argv[0]);
-	m_appFileName->Normalize(wxPATH_NORM_DOTS|wxPATH_NORM_ABSOLUTE|
-		wxPATH_NORM_TILDE);
-	m_TranslationHelper = new wxTranslationHelper(*this, m_appFileName->GetPath() +
-		wxFileName::GetPathSeparator() + wxT("lang"), false);
+	m_appFileName->Normalize(wxPATH_NORM_DOTS|wxPATH_NORM_ABSOLUTE|wxPATH_NORM_TILDE);
+	m_TranslationHelper = new wxTranslationHelper(*this, m_appFileName->GetPath() +	wxFileName::GetPathSeparator() + wxT("lang"), false);
 	wxString path = m_appFileName->GetPath() + wxFileName::GetPathSeparator() + wxT("conf.ini");
 	m_TranslationHelper->SetConfigPath(path);
 	m_TranslationHelper->Load();
