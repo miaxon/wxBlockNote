@@ -72,8 +72,8 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     wxMenu* menuView;
     wxMenuBar* MenuBar;
     wxMenuItem* menuItemAbout;
-    wxMenuItem* menuItemQuit;
     wxMenuItem* menuItemLanguage;
+    wxMenuItem* menuItemQuit;
 
     Create(parent, wxID_ANY, _("wxBlockNote"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(800,600));
@@ -83,10 +83,10 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     	FrameIcon.CopyFromBitmap(wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_HELP_BOOK")),wxART_FRAME_ICON));
     	SetIcon(FrameIcon);
     }
-    RichTextCtrl = new wxRichTextCtrl(this, ID_RICHTEXTCTRL, wxEmptyString, wxPoint(176,168), wxDefaultSize, wxRE_MULTILINE, wxDefaultValidator, _T("ID_RICHTEXTCTRL"));
+    richText = new wxRichTextCtrl(this, ID_RICHTEXTCTRL, wxEmptyString, wxPoint(176,168), wxDefaultSize, wxRE_MULTILINE, wxDefaultValidator, _T("ID_RICHTEXTCTRL"));
     wxRichTextAttr rchtxtAttr_1;
     rchtxtAttr_1.SetBulletStyle(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT);
-    RichTextCtrl->SetFocus();
+    richText->SetFocus();
     MenuBar = new wxMenuBar();
     menuFile = new wxMenu();
     menuItemQuit = new wxMenuItem(menuFile, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
@@ -111,10 +111,6 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     StatusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar);
     Center();
-
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnQuit);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnAbout);
-    Connect(idMenuLanguage,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnLanguageSelect);
     //*)
 }
 

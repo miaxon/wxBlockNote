@@ -43,7 +43,7 @@ class wxBlockNoteFrame: public wxFrame
         //*)
 
         //(*Declarations(wxBlockNoteFrame)
-        wxRichTextCtrl* RichTextCtrl;
+        wxRichTextCtrl* richTextCtrl;
         wxStatusBar* StatusBar;
         //*)
 

@@ -7,7 +7,7 @@
 		<size>800,600</size>
 		<focused>1</focused>
 		<id_arg>0</id_arg>
-		<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL" variable="RichTextCtrl" member="yes">
+		<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL" variable="richText" member="yes">
 			<pos>176,168</pos>
 			<focused>1</focused>
 		</object>
@@ -18,14 +18,15 @@
 					<label>Quit</label>
 					<accel>Alt-F4</accel>
 					<help>Quit the application</help>
-					<bitmap>./images/application_go.png</bitmap>
+					<bitmap code="wxBitmap(application_go)" />
 				</object>
 			</object>
-			<object class="wxMenu" variable="menuView" member="yes">
+			<object class="wxMenu" variable="menuView" member="no">
 				<label>View</label>
-				<object class="wxMenuItem" name="idMenuLanguage" variable="menuItemLanguage" member="yes">
+				<object class="wxMenuItem" name="idMenuLanguage" variable="menuItemLanguage" member="no">
 					<label>Language</label>
 					<help>Select language</help>
+					<bitmap code="wxBitmap(world)" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="menuHelp" member="no">
@@ -34,8 +35,7 @@
 					<label>About</label>
 					<accel>F1</accel>
 					<help>Show info about this application</help>
-					<bitmap stock_id="wxART_HELP" stock_client="wxART_MENU" />
-					<handler function="OnAbout" entry="EVT_MENU" />
+					<bitmap code="wxBitmap(information)" />
 				</object>
 			</object>
 		</object>
