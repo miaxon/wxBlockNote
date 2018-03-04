@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wxBlockNote\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-27 14:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: src\n"
+"X-Poedit-SearchPath-1: include\n"
+
+#: src/utils/wxTranslationHelper.cpp:134
+msgid "Default"
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:140
+#, c-format
+msgid "Directory %s DOES NOT EXIST !!!"
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:178
+msgid "Array of language names and identifiers should have the same size."
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:179
+msgid "Select the language"
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:180 src/wxBlockNoteMain.cpp:93
+msgid "Language"
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:191
+#, c-format
+msgid "wxTranslationHelper: Path Prefix = \"%s\""
+msgstr ""
+
+#: src/utils/wxTranslationHelper.cpp:195
+#, c-format
+msgid "wxTranslationHelper: Catalog Name = \"%s\""
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:72
+msgid "wxBlockNote"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:86
+msgid "Quit\tAlt-F4"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:86
+msgid "Quit the application"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:91
+msgid "&File"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:93
+msgid "Select language"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:95
+msgid "View"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:97
+msgid "About\tF1"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:97
+msgid "Show info about this application"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:100
+msgid "Help"
+msgstr ""
+
+#: src/wxBlockNoteMain.cpp:130
+msgid "Welcome to..."
+msgstr ""

@@ -43,8 +43,8 @@ class wxBlockNoteFrame: public wxFrame
         //*)
 
         //(*Declarations(wxBlockNoteFrame)
-        wxRichTextCtrl* richTextCtrl;
-        wxStatusBar* StatusBar;
+        wxRichTextCtrl* richText;
+        wxStatusBar* statusBar;
         //*)
 
         DECLARE_EVENT_TABLE()

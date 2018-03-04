@@ -52,7 +52,7 @@
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="src/wxBlockNoteApp.cpp" main="wxBlockNoteFrame" init_handlers="necessary" language="CPP" />
 				<resources>
-					<wxFrame wxs="src/wxsmith/wxBlockNoteframe.wxs" src="src/wxBlockNoteMain.cpp" hdr="src/wxBlockNoteMain.h" fwddecl="0" i18n="1" name="wxBlockNoteFrame" language="CPP" />
+					<wxFrame wxs="src/wxsmith/wxBlockNoteframe.wxs" src="src/wxBlockNoteMain.cpp" hdr="include/wxBlockNoteMain.h" fwddecl="0" i18n="1" name="wxBlockNoteFrame" language="CPP" />
 				</resources>
 			</wxsmith>
 			<debugger />
