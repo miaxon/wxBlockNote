@@ -29,23 +29,14 @@
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="`wx-config --cxxflags --unicode=yes --static=no`" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-s" />
+					<Add option="`wx-config --unicode=yes --static=no --libs richtext,core,base`" />
 				</Linker>
 			</Target>
 		</Build>
-		<Compiler>
-			<Add option="`wx-config --cflags`" />
-			<Add option="-Winvalid-pch" />
-			<Add option="-include wx_pch.h" />
-			<Add option="-DWX_PRECOMP" />
-			<Add option="-Wall" />
-		</Compiler>
-		<Linker>
-			<Add option="`wx-config --libs`" />
-		</Linker>
 		<Unit filename="include/utils/wxTranslationHelper.h" />
 		<Unit filename="include/wxBlockNoteApp.h" />
 		<Unit filename="include/wxBlockNoteMain.h" />
