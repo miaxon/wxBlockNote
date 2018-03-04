@@ -1,5 +1,5 @@
 /* XPM */
-static char *world[] = {
+static const char *world[] = {
 /* columns rows colors chars-per-pixel */
 "16 16 182 2 ",
 "   c None",

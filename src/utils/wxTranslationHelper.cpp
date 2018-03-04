@@ -161,12 +161,12 @@ void wxTranslationHelper::GetInstalledLanguages(wxArrayString & names,
 				*/
 
 				wxString s = dir.GetName()+wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator()+m_App.GetAppName()+wxT(".mo");
-wxLogDebug("%s",s);
+//wxLogDebug("%s",s);
 			if(wxFileExists(s))
 			{
 				names.Add(langinfo->Description);
 				identifiers.Add(langinfo->Language);
-				wxMessageBox(langinfo->GetLocaleName());
+				//wxMessageBox(langinfo->GetLocaleName());
 			}
 		}
 	}
