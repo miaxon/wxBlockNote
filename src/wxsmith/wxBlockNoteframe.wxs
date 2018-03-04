@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="wxBlockNoteFrame">
+		<title>wxBlockNote</title>
+		<centered>1</centered>
+		<icon stock_id="wxART_HELP_BOOK" stock_client="wxART_FRAME_ICON" />
+		<size>800,600</size>
+		<focused>1</focused>
+		<id_arg>0</id_arg>
+		<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL" variable="RichTextCtrl" member="yes">
+			<pos>176,168</pos>
+			<focused>1</focused>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar" member="no">
+			<object class="wxMenu" variable="menuFile" member="no">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuQuit" variable="menuItemQuit" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<bitmap>./images/application_go.png</bitmap>
+				</object>
+			</object>
+			<object class="wxMenu" variable="menuView" member="yes">
+				<label>View</label>
+				<object class="wxMenuItem" name="idMenuLanguage" variable="menuItemLanguage" member="yes">
+					<label>Language</label>
+					<help>Select language</help>
+				</object>
+			</object>
+			<object class="wxMenu" variable="menuHelp" member="no">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="menuItemAbout" member="no">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<bitmap stock_id="wxART_HELP" stock_client="wxART_MENU" />
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR" variable="StatusBar" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+	</object>
+</wxsmith>

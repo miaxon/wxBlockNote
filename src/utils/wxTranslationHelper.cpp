@@ -161,7 +161,7 @@ void wxTranslationHelper::GetInstalledLanguages(wxArrayString & names,
 				*/
 
 				wxString s = dir.GetName()+wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator()+m_App.GetAppName()+wxT(".mo");
-
+wxMessageBox(s);
 			if(wxFileExists(s))
 			{
 				names.Add(langinfo->Description);
