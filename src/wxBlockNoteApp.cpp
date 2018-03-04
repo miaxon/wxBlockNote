@@ -10,8 +10,8 @@
 
 
 //(*AppHeaders
-#include "wxBlockNoteApp.h"
-#include "wxBlockNoteMain.h"
+#include <wxBlockNoteApp.h>
+#include <wxBlockNoteMain.h>
 #include <wx/image.h>
 //*)
 

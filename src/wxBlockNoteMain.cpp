@@ -7,11 +7,7 @@
  * License:
  **************************************************************/
 
-#include "wxBlockNoteMain.h"
-#include "wxBlockNoteApp.h"
-#include "images/application_go.xpm"
-#include "images/information.xpm"
-#include "images/world.xpm"
+
 
 
 //(*InternalHeaders(wxBlockNoteFrame)
@@ -22,6 +18,13 @@
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
+
+
+#include <wxBlockNoteMain.h>
+#include <wxBlockNoteApp.h>
+#include <images/application_go.xpm>
+#include <images/information.xpm>
+#include <images/world.xpm>
 
 //helper functions
 enum wxbuildinfoformat {
@@ -108,7 +111,6 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     StatusBar->SetFieldsCount(1,__wxStatusBarWidths_1);
     StatusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar);
-    Center();
 
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnQuit);
     Connect(idMenuLanguage,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnLanguageSelect);

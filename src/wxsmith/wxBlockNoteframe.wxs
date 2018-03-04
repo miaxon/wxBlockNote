@@ -2,7 +2,6 @@
 <wxsmith>
 	<object class="wxFrame" name="wxBlockNoteFrame">
 		<title>wxBlockNote</title>
-		<centered>1</centered>
 		<icon stock_id="wxART_HELP_BOOK" stock_client="wxART_FRAME_ICON" />
 		<size>800,600</size>
 		<focused>1</focused>
@@ -19,6 +18,7 @@
 					<accel>Alt-F4</accel>
 					<help>Quit the application</help>
 					<bitmap code="wxBitmap(application_go)" />
+					<handler function="OnQuit" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="menuView" member="no">
@@ -27,6 +27,7 @@
 					<label>Language</label>
 					<help>Select language</help>
 					<bitmap code="wxBitmap(world)" />
+					<handler function="OnLanguageSelect" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="menuHelp" member="no">
@@ -36,6 +37,7 @@
 					<accel>F1</accel>
 					<help>Show info about this application</help>
 					<bitmap code="wxBitmap(information)" />
+					<handler function="OnAbout" entry="EVT_MENU" />
 				</object>
 			</object>
 		</object>
