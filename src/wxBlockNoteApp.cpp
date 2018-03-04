@@ -24,7 +24,6 @@ bool wxBlockNoteApp::OnInit()
     //(*AppInitialize
     wxImage::AddHandler(new wxPNGHandler);
     m_appFileName = new wxFileName(argv[0]);
-    //wxFileName appFileName(argv[0]);
 	m_appFileName->Normalize(wxPATH_NORM_DOTS|wxPATH_NORM_ABSOLUTE|wxPATH_NORM_TILDE);
 	m_TranslationHelper = new wxTranslationHelper(*this, m_appFileName->GetPath() +	wxFileName::GetPathSeparator() + wxT("lang"), false);
 	wxString path = m_appFileName->GetPath() + wxFileName::GetPathSeparator() + wxT("conf.ini");
