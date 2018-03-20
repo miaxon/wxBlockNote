@@ -6,13 +6,20 @@
 		<size>800,600</size>
 		<focused>1</focused>
 		<id_arg>0</id_arg>
-		<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL" variable="richText" member="yes">
-			<pos>176,168</pos>
-			<focused>1</focused>
+		<object class="wxTextCtrl" name="ID_TEXTCTRL" variable="textCtrl" member="yes">
+			<pos>632,400</pos>
+			<style>wxTE_MULTILINE|wxTE_DONTWRAP</style>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar" member="no">
 			<object class="wxMenu" variable="menuFile" member="no">
 				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuOpen" variable="menuItemOpen" member="no">
+					<label>Open</label>
+					<accel>Ctrl+O</accel>
+					<help>Open file</help>
+					<bitmap code="wxBitmap(page_green)" />
+					<handler function="OnOpenSelected" entry="EVT_MENU" />
+				</object>
 				<object class="wxMenuItem" name="idMenuQuit" variable="menuItemQuit" member="no">
 					<label>Quit</label>
 					<accel>Alt-F4</accel>
