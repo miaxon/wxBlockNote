@@ -13,8 +13,8 @@
 //(*Headers(wxBlockNoteFrame)
 #include <wx/frame.h>
 #include <wx/menu.h>
-#include <wx/richtext/richtextctrl.h>
 #include <wx/statusbr.h>
+#include <wx/textctrl.h>
 //*)
 
 
@@ -32,10 +32,12 @@ class wxBlockNoteFrame: public wxFrame
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnLanguageSelect(wxCommandEvent& event);
+        void OnOpenSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(wxBlockNoteFrame)
-        static const long ID_RICHTEXTCTRL;
+        static const long ID_TEXTCTRL;
+        static const long idMenuOpen;
         static const long idMenuQuit;
         static const long idMenuLanguage;
         static const long idMenuAbout;
@@ -43,8 +45,8 @@ class wxBlockNoteFrame: public wxFrame
         //*)
 
         //(*Declarations(wxBlockNoteFrame)
-        wxRichTextCtrl* richText;
         wxStatusBar* StatusBar;
+        wxTextCtrl* textCtrl;
         //*)
 
         DECLARE_EVENT_TABLE()

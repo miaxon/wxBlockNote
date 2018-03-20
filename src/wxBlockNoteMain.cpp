@@ -25,6 +25,7 @@
 #include <images/application_go.xpm>
 #include <images/information.xpm>
 #include <images/world.xpm>
+#include <images/page_green.xpm>
 
 //helper functions
 enum wxbuildinfoformat {
@@ -53,7 +54,8 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(wxBlockNoteFrame)
-const long wxBlockNoteFrame::ID_RICHTEXTCTRL = wxNewId();
+const long wxBlockNoteFrame::ID_TEXTCTRL = wxNewId();
+const long wxBlockNoteFrame::idMenuOpen = wxNewId();
 const long wxBlockNoteFrame::idMenuQuit = wxNewId();
 const long wxBlockNoteFrame::idMenuLanguage = wxNewId();
 const long wxBlockNoteFrame::idMenuAbout = wxNewId();
@@ -74,22 +76,23 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     wxMenuBar* MenuBar;
     wxMenuItem* menuItemAbout;
     wxMenuItem* menuItemLanguage;
+    wxMenuItem* menuItemOpen;
     wxMenuItem* menuItemQuit;
 
     Create(parent, wxID_ANY, _("wxBlockNote"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(800,600));
     SetFocus();
     {
-    	wxIcon FrameIcon;
-    	FrameIcon.CopyFromBitmap(wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_HELP_BOOK")),wxART_FRAME_ICON));
-    	SetIcon(FrameIcon);
+    wxIcon FrameIcon;
+    FrameIcon.CopyFromBitmap(wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_HELP_BOOK")),wxART_FRAME_ICON));
+    SetIcon(FrameIcon);
     }
-    richText = new wxRichTextCtrl(this, ID_RICHTEXTCTRL, wxEmptyString, wxPoint(176,168), wxDefaultSize, wxRE_MULTILINE, wxDefaultValidator, _T("ID_RICHTEXTCTRL"));
-    wxRichTextAttr rchtxtAttr_1;
-    rchtxtAttr_1.SetBulletStyle(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT);
-    richText->SetFocus();
+    textCtrl = new wxTextCtrl(this, ID_TEXTCTRL, wxEmptyString, wxPoint(632,400), wxDefaultSize, wxTE_MULTILINE|wxTE_DONTWRAP, wxDefaultValidator, _T("ID_TEXTCTRL"));
     MenuBar = new wxMenuBar();
     menuFile = new wxMenu();
+    menuItemOpen = new wxMenuItem(menuFile, idMenuOpen, _("Open\tCtrl+O"), _("Open file"), wxITEM_NORMAL);
+    menuItemOpen->SetBitmap(wxBitmap(page_green));
+    menuFile->Append(menuItemOpen);
     menuItemQuit = new wxMenuItem(menuFile, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     menuItemQuit->SetBitmap(wxBitmap(application_go));
     menuFile->Append(menuItemQuit);
@@ -112,6 +115,7 @@ wxBlockNoteFrame::wxBlockNoteFrame(wxWindow* parent,wxWindowID id)
     StatusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar);
 
+    Connect(idMenuOpen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnOpenSelected);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnQuit);
     Connect(idMenuLanguage,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnLanguageSelect);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&wxBlockNoteFrame::OnAbout);
@@ -141,4 +145,26 @@ void wxBlockNoteFrame::OnLanguageSelect(wxCommandEvent& event)
 	{
 		wxGetApp().RecreateGUI();
 	}
+}
+
+void wxBlockNoteFrame::OnOpenSelected(wxCommandEvent& event)
+{
+    wxFileDialog* OpenDialog = new wxFileDialog(
+		this, _("Choose a file to open"), wxEmptyString, wxEmptyString,
+		_("Text files (*.txt)|*.txt|C++ Source Files (*.cpp, *.cxx)|*.cpp;*.cxx|C Source files (*.c)|*.c|C header files (*.h)|*.h"),
+		wxFD_OPEN, wxDefaultPosition);
+
+	// Creates a "open file" dialog with 4 file types
+	if (OpenDialog->ShowModal() == wxID_OK) // if the user click "Open" instead of "Cancel"
+	{
+		//CurrentDocPath = OpenDialog->GetPath();
+		// Sets our current document to the file the user selected
+		wxLogDebug(OpenDialog->GetPath());
+		textCtrl->LoadFile(OpenDialog->GetPath()); //Opens that file
+		textCtrl->Refresh();
+		SetTitle(wxString(_("Edit - ")) << OpenDialog->GetFilename()); // Set the Title to reflect the file open
+	}
+
+	// Clean up after ourselves
+	OpenDialog->Destroy();
 }

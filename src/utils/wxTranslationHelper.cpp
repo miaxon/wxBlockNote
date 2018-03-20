@@ -142,31 +142,24 @@ void wxTranslationHelper::GetInstalledLanguages(wxArrayString & names,
 		return;
 	}
 	wxDir dir(m_SearchPath);
-	for(bool cont = dir.GetFirst(&filename,
-#ifdef __WXMSW__
-	wxT("*.*"),
-#else
-	wxT("*"),
-#endif
-	wxDIR_DEFAULT);
-		cont; cont = dir.GetNext(&filename))
+	for(bool cont = dir.GetFirst(&filename, wxT("*"),wxDIR_DEFAULT); cont; cont = dir.GetNext(&filename))
 	{
 		langinfo = wxLocale::FindLanguageInfo(filename);
 		if(langinfo != NULL)
 		{
-			/*wxLogTrace(wxTraceMask(), _("SEARCHING FOR %s"),
+			wxLogTrace(wxTraceMask(), _("SEARCHING FOR %s"),
 				wxString(dir.GetName()+wxFileName::GetPathSeparator()+
 				filename+wxFileName::GetPathSeparator()+
 				m_App.GetAppName()+wxT(".mo")).GetData());
-				*/
 
-				wxString s = dir.GetName()+wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator()+m_App.GetAppName()+wxT(".mo");
+
+				wxString s = dir.GetName()+wxFileName::GetPathSeparator() + filename+wxFileName::GetPathSeparator() + m_App.GetAppName() + wxT(".mo");
+
 //wxLogDebug("%s",s);
 			if(wxFileExists(s))
 			{
 				names.Add(langinfo->Description);
 				identifiers.Add(langinfo->Language);
-				//wxMessageBox(langinfo->GetLocaleName());
 			}
 		}
 	}

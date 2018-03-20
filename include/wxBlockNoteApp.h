@@ -20,11 +20,14 @@ class wxBlockNoteApp : public wxApp
         virtual bool OnInit();
         bool SelectLanguage();
         void RecreateGUI();
+
         wxFileName* GetAppFileName();
     private:
-    wxLocale* m_locale;
-    wxTranslationHelper * m_TranslationHelper;
-    wxFileName* m_appFileName;
+		wxLocale* m_locale;
+		wxTranslationHelper * m_TranslationHelper;
+		wxFileName* m_appFileName;
+
+		void CreateLogWindow();
 };
 wxDECLARE_APP(wxBlockNoteApp);
 #endif // WXBLOCKNOTEAPP_H

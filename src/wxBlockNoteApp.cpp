@@ -14,10 +14,8 @@
 #include <wxBlockNoteMain.h>
 #include <wx/image.h>
 //*)
-
+#include <wx/log.h>
 IMPLEMENT_APP(wxBlockNoteApp);
-wxLocale* locale;
-long language;
 
 bool wxBlockNoteApp::OnInit()
 {
@@ -30,6 +28,7 @@ bool wxBlockNoteApp::OnInit()
 	m_TranslationHelper->SetConfigPath(path);
 	m_TranslationHelper->Load();
 	RecreateGUI();
+	CreateLogWindow();
     //*)
     return true;
 
@@ -48,6 +47,11 @@ bool wxBlockNoteApp::SelectLanguage()
 	return res;
 }
 
+void wxBlockNoteApp::CreateLogWindow()
+{
+
+}
+
 void wxBlockNoteApp::RecreateGUI()
 {
 	wxWindow * topwindow = GetTopWindow();
@@ -56,9 +60,22 @@ void wxBlockNoteApp::RecreateGUI()
 		SetTopWindow(NULL);
 		topwindow->Destroy();
 	}
-	wxLog::SetActiveTarget(new wxLogWindow(NULL,"Logs"));
 	wxBlockNoteFrame * frame = new wxBlockNoteFrame(0);
 	SetTopWindow(frame);
 	frame->Centre();
 	frame->Show();
+#if LOGGING
+	wxFrame* pLogFrame;
+    wxLogWindow* m_pLogWindow = new wxLogWindow(frame, wxT("Log") );
+    m_pLogWindow->PassMessages(false);
+    pLogFrame = m_pLogWindow->GetFrame();
+    pLogFrame->SetWindowStyle(wxDEFAULT_FRAME_STYLE|wxSTAY_ON_TOP);
+    pLogFrame->SetSize( wxRect(0,50,400,250) );
+    wxLog::SetActiveTarget(m_pLogWindow);
+    wxLogDebug("Start logging");
+    wxLogWarning("asdasda");
+    wxLogError("asdasda");
+    wxLogWarning("asdasda");
+
+#endif // LOGGING
 }
